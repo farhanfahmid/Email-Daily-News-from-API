@@ -1,4 +1,4 @@
-name: Daily Business News Email
+name: Daily News Email
 
 on:
   schedule:
