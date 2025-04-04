@@ -1,1 +1,26 @@
+name: Daily Business News Email
+
+on:
+  schedule:
+    - cron: '0 10 * * *'  # runs at 10:00 UTC = 4:00 PM BD Time
+  workflow_dispatch:      # allows manual run from GitHub interface
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run script
+        run: python daily_news.py
 
