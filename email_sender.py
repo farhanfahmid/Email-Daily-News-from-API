@@ -6,7 +6,7 @@ def send_email(message):
    port = 465
 
    username = os.getenv("EMAIL_ADDRESS")
-   password = os.getenv("APP_PASS")
+   password = os.getenv("EMAIL_PASSWORD")
 
    receiver = os.getenv("EMAIL_ADDRESS")
    context = ssl.create_default_context()
