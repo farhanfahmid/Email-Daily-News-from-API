@@ -2,8 +2,8 @@ name: Daily Business News Email
 
 on:
   schedule:
-    - cron: '30 12 * * *'  
-  workflow_dispatch:      # allows manual run from GitHub interface
+    - cron: '30 12 * * *'  # Runs at 6:30 PM BD Time (12:30 UTC)
+  workflow_dispatch:        # Allows manual trigger
 
 jobs:
   run-script:
@@ -21,10 +21,13 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run script
-        run: python tesla_news.py
-             python business_news.py
-             python entertainment_news.py
-             python tech_news.py
-             python wallstreet_news.py
-
+      - name: Run scripts
+        run: |
+          python tesla_news.py
+          python business_news.py
+          python entertainment_news.py
+          python tech_news.py
+          python wallstreet_news.py
+        env: 
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL_PASSWORD: ${{ secrets.APP_PASS }}
