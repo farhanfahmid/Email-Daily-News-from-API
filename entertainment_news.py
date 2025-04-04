@@ -19,7 +19,7 @@ for article in content["articles"]:
     print(article["description"])
     print("\n")
 
-email_body += (article["title"] or "No Title") + "\n" + (article["description"] or "No Description") + "\n" + article["url"] + 2 * "\n"
+    email_body += (article["title"] or "No Title") + "\n" + (article["description"] or "No Description") + "\n" + article["url"] + 2 * "\n"
 
 # Build the email with the Subject header
 message = f"Subject: Glams n Gossips!\n\n{email_body}"
