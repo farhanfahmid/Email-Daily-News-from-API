@@ -19,11 +19,13 @@ for article in content["articles"][0:20]: # only give first 20 news
     print(article["description"])
     print("\n")
 
-    email_body = ("Subject: Top Tesla Headlines" + "\n" + email_body + (article["title"] or "No Title") + "\n" + (article["description"] or "No Description")
-                  + "\n" + article["url"] + 2*"\n")
+    email_body += (article["title"] or "No Title") + "\n" + (article["description"] or "No Description") + "\n" + article["url"] + 2 * "\n"
 
+# Build the email with the Subject header
+message = f"Subject: Top Tesla Headlines\n\n{email_body}"
 
-new_email_body= email_body.encode("utf-8")
+# Send the email
+new_email_body = message.encode("utf-8")
 send_email(new_email_body)
 
 
