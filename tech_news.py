@@ -4,7 +4,7 @@ from email_sender import send_email
 
 
 api_key = "6a3c3a768caf4d3785662ad0d9cb37ad"
-url = ("https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=6a3c3a768caf4d3785662ad0d9cb37ad&language=en")  #this url or endpoint gets us news about the defined topic
+url = ("https://newsapi.org/v2/everything?sources=techcrunch&apiKey=6a3c3a768caf4d3785662ad0d9cb37ad&language=en")  #this url or endpoint gets us news about the defined topic
 
 #fetch the news data
 request = requests.get(url) #create a request object type
