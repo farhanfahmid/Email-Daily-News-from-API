@@ -2,9 +2,9 @@ import requests
 
 from email_sender import send_email
 
-topic = "tesla"
+
 api_key = "6a3c3a768caf4d3785662ad0d9cb37ad"
-url = (f"https://newsapi.org/v2/everything?q={topic}&from=2025-03-03&sortBy=publishedAt&apiKey=6a3c3a768caf4d3785662ad0d9cb37ad&language=en")  #this url or endpoint gets us news about tesla
+url = (f"https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=6a3c3a768caf4d3785662ad0d9cb37ad&language=en")  #this url or endpoint gets us news about the defined topic
 
 #fetch the news data
 request = requests.get(url) #create a request object type
@@ -15,14 +15,14 @@ print(type(content))
 print(f"Articles: {content["articles"]}")
 
 
-email_body = "Latest Tesla News: \n"
+email_body = "What's New: \n"
 
-for article in content["articles"][0:20]: # only give first 20 news
+for article in content["articles"]:
     print(article["title"])
     print(article["description"])
     print("\n")
 
-    email_body = ("Subject: What's New Today" + "\n" + email_body + (article["title"] or "No Title") + "\n" + (article["description"] or "No Description")
+    email_body = ("Subject: Top Business Headlines" + "\n" + email_body + (article["title"] or "No Title") + "\n" + (article["description"] or "No Description")
                   + "\n" + article["url"] + 2*"\n")
 
 
