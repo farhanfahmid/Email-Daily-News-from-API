@@ -2,7 +2,7 @@ name: Daily Business News Email
 
 on:
   schedule:
-    - cron: '35 07 * * *'  # Runs at 6:30 PM BD Time (12:30 UTC)
+    - cron: '35 01 * * *'  # Runs at 6:30 PM BD Time (12:30 UTC)
   workflow_dispatch:        # Allows manual trigger
 
 jobs:
