@@ -2,7 +2,7 @@ name: Daily News Email
 
 on:
   schedule:
-    - cron: '0 15 * * *'  
+    - cron: '41 14 * * *'  
   workflow_dispatch:        # Allows manual trigger
 
 jobs:
